@@ -15,5 +15,15 @@ namespace Test
             char actual = ticTacToe.Validate();
             Assert.AreEqual(expectet, actual); 
         }
+        //public void PlayerXHasPlacedAMove()
+        //{
+        //    TicTacToe ticTacToe = new TicTacToe();
+        //    Assert.AreEqual('X', TicTacToe.GetGameBoardView());
+        //}
+        //public void PlayerOHasPlacedAMove()
+        //{
+        //    TicTacToe ticTacToe = new TicTacToe();
+        //    Assert.AreEqual('O', TicTacToe.GetGameBoardView());
+        //}
     }
 }

@@ -40,17 +40,6 @@ namespace spil
 
             return resultat;
         }
-
-        public char Validate()
-        {
-            char resultat = ' ';
-
-            // skriv validerings kode her
-
-            return resultat;
-        }
-
         // her kan implementeres metoder til at sætte og flytte en brik
-
     }
 }

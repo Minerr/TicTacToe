@@ -1,0 +1,13 @@
+D:\dmo170x\projekter\spil\spil\spil\bin\Debug\spil.exe.config
+D:\dmo170x\projekter\spil\spil\spil\bin\Debug\spil.exe
+D:\dmo170x\projekter\spil\spil\spil\bin\Debug\spil.pdb
+D:\dmo170x\projekter\spil\spil\spil\obj\Debug\spil.csprojResolveAssemblyReference.cache
+D:\dmo170x\projekter\spil\spil\spil\obj\Debug\spil.exe
+D:\dmo170x\projekter\spil\spil\spil\obj\Debug\spil.pdb
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\bin\Debug\spil.exe.config
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\bin\Debug\spil.exe
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\bin\Debug\spil.pdb
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\obj\Debug\spil.csprojResolveAssemblyReference.cache
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\obj\Debug\spil.csproj.CoreCompileInputs.cache
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\obj\Debug\spil.exe
+D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\spil\spil\spil\obj\Debug\spil.pdb
