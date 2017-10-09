@@ -52,19 +52,34 @@ namespace TicTacToeV2
 		public string GetGameBoardView()
 		{
 			string resultat = "";
+            int i = 0;
 
-			for(int i = 0; i < 10; i++)
-			{
-				resultat = resultat + "\n ****************************************\n";
-				resultat = resultat + " | ";
-				for(int j = 0; j < 10; j++)
-				{
-					resultat = resultat + P1GameBoard[j, i] + " | ";
-				}
-				
-			}
+            if ( i <= 9 || i < 10)
+            {
+                for (i = 0; i < 10; i++)
+                {
+                    resultat = resultat + "\n *****************************************     *****************************************\n";
+                    resultat = resultat + " | ";
+                    for (int j = 0; j < 10; j++)
+                    {
+                        resultat = resultat + GameBoard1[j, i] + " | ";
+     
+                    }
+                    resultat = resultat + "    | ";
 
-			resultat = resultat + "\n ****************************************\n";
+                    for (int j = 0; j < 10; j++)
+                    {
+
+                        resultat = resultat + Gameboard2[j, i] + " | ";
+                    }
+                }
+        
+            }
+
+
+
+
+            resultat = resultat + "\n *****************************************     *****************************************\n";
 
 			return resultat;
 		}
