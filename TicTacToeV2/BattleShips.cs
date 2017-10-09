@@ -62,14 +62,14 @@ namespace TicTacToeV2
                 resultat = resultat + " | ";
                 for (int j = 0; j < 10; j++)
                 {
-                    resultat = resultat + GameBoard1[j, i] + " | ";
+                    resultat = resultat + P1GameBoard[j, i] + " | ";
                 }
 
                 resultat = resultat + "    | ";
 
                 for (int j = 0; j < 10; j++)
                 {
-                    resultat = resultat + Gameboard2[j, i] + " | ";
+                    resultat = resultat + P2GameBoard[j, i] + " | ";
                 }
             }
 
@@ -83,21 +83,21 @@ namespace TicTacToeV2
             int j = Convert.ToInt32(validCoordinates[0]) - 1;
             int i = Convert.ToInt32(validCoordinates[1]) - 1;
 
-            if (Gameboard2[j, i] == 'B')
+            if (P2GameBoard[j, i] == 'B')
             {
-                Gameboard2[j, i] = 'X';
+                P2GameBoard[j, i] = 'X';
                 return true;
 
             }
-            else if (Gameboard2[j, i] == ' ')
+            else if (P2GameBoard[j, i] == ' ')
             {
-                Gameboard2[j, i] = 'O';
+                P2GameBoard[j, i] = 'O';
                 return true;
             }
 
             return false;
 
-			return resultat;
+			
 		}
         public string GetCurrentPlayer()         
         {
