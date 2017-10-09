@@ -62,7 +62,7 @@ namespace TicTacToeV2
                     resultat = resultat + " | ";
                     for (int j = 0; j < 10; j++)
                     {
-                        resultat = resultat + GameBoard1[j, i] + " | ";
+                        resultat = resultat + P1GameBoard[j, i] + " | ";
      
                     }
                     resultat = resultat + "    | ";
@@ -70,7 +70,7 @@ namespace TicTacToeV2
                     for (int j = 0; j < 10; j++)
                     {
 
-                        resultat = resultat + Gameboard2[j, i] + " | ";
+                        resultat = resultat + P2GameBoard[j, i] + " | ";
                     }
                 }
         
