@@ -229,6 +229,7 @@ namespace TicTacToeV2
 		}
 		private void ShowBSMenu()
 		{
+            Console.WriteLine(gameBS.GetCurrentPlayer());
 			Console.Write(gameBS.GetGameBoardView());
 		}
 
