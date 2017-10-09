@@ -1,7 +1,0 @@
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\bin\Debug\TicTacToeV2.exe.config
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\bin\Debug\TicTacToeV2.exe
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\bin\Debug\TicTacToeV2.pdb
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\obj\Debug\TicTacToeV2.csprojResolveAssemblyReference.cache
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\obj\Debug\TicTacToeV2.csproj.CoreCompileInputs.cache
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\obj\Debug\TicTacToeV2.exe
-D:\Studies\School Studies\EAL\Datamatiker\1.semester\Projekter\Programmeringsprojekt\Opgaver\TicTacToeV2\TicTacToeV2\obj\Debug\TicTacToeV2.pdb
