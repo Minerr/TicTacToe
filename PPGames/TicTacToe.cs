@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeV2
+namespace PPGames
 {
     public class TicTacToe
     {

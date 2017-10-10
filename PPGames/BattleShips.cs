@@ -4,21 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeV2
+namespace PPGames
 {
     public class BattleShips
     {
-        private const string player1 = "player1";
-        private const string player2 = "player2";
+		// Start variables
+        private const string player1 = "1";
+        private const string player2 = "2";
+		private string currentPlayer;
+
+		// Properties
+		public string CurrentPlayer
+		{
+			get { return currentPlayer; }
+		}
+
 		public char[,] P1GameBoard { get; set; }
         public char[,] P2GameBoard { get; set; }
-        private string currentPlayer;
-        public BattleShips(GameMode mode)
-        
+
+
+        public BattleShips(GameMode mode) // Constructor method
 		{
-
             currentPlayer = player1;
-
 
 			P1GameBoard = new char[10, 10]
 			{

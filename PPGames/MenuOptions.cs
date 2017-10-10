@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeV2
+namespace PPGames
 {
-	public enum GameMode
+	public enum MenuOptions
 	{
-		Standard,
-		Variation
+		ChooseGameMode,
+		HandleGameActions
 	}
 }

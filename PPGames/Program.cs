@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeV2
+namespace PPGames
 {
     class Program
     {
-		GameMenu menu;
+		MenuHandler menu;
 
 		static void Main(string[] args)
         {
@@ -18,7 +18,7 @@ namespace TicTacToeV2
 
 		private void Run()
 		{
-			menu = new GameMenu();
+			menu = new MenuHandler();
 			menu.RunGame();
 		}
 	}
