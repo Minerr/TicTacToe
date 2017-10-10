@@ -65,7 +65,7 @@ namespace PPGames
 
 		private void ChooseGame(string input)
 		{
-			// Hvis vores menu er "vælg gamemode", så check følgende input:
+			// Hvis vores menu er "vælg game", så check følgende input:
 			if(input == "1")
 			{
 				// Use Tic Tac Toe menu
