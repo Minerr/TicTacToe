@@ -75,7 +75,7 @@ namespace PPGames
 			ShowGameBoard();
 			Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
 			
-			// Show actions
+			//TODO: Show actions for either placing ships or boats, depending on if all ships are placed.
 		}
 
 		//------------- Handle Input menu's ---------------
@@ -107,7 +107,7 @@ namespace PPGames
 				return true;
 			}
 			
-			// Code for place ship and place bomb goes here
+			//TODO: Code for place ship and place bomb goes here
 
 			return false;
 		}
