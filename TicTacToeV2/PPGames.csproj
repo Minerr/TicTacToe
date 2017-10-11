@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleShips.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="MenuOptions.cs" />
     <Compile Include="Program.cs" />

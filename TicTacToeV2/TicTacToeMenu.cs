@@ -179,7 +179,7 @@ namespace TicTacToeV2
 					ShowTTTMenu();
 					break;
 				case MenuOptions.ChooseBSGameMode:
-					showBSGameModeMenu();
+					ShowBSGameModeMenu();
 					break;
 				case MenuOptions.HandleBSGameMode:
 					ShowBSMenu();
@@ -220,7 +220,7 @@ namespace TicTacToeV2
 				}
 			}
 		}
-		private void showBSGameModeMenu()
+		private void ShowBSGameModeMenu()
 		{
 			Console.WriteLine("Choose game mode:");
 			Console.WriteLine("1. Standard Mode");
@@ -230,7 +230,12 @@ namespace TicTacToeV2
 		private void ShowBSMenu()
 		{
             Console.WriteLine(gameBS.GetCurrentPlayer());
-			Console.Write(gameBS.GetGameBoardView());
+            Console.Write(gameBS.GetGameBoardView());
+            Console.WriteLine("1.Place  : (X,Y, horizontal (H) or Vertical (V)");
+            Console.WriteLine("0. Exit");
+            
+                
+        
 		}
 
 		public void ShowGameBoard()

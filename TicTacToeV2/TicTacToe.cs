@@ -10,7 +10,7 @@ namespace TicTacToeV2
     {
         private char playerX = 'X';
         private char playerO = 'O';
-        private char currentPlayer;
+        public char currentPlayer;
 		private int playerMoves = 6;
 		private int coordinateToMoveX;
 		private int coordinateToMoveY;

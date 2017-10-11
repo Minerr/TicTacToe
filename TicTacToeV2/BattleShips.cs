@@ -10,29 +10,29 @@ namespace TicTacToeV2
     {
         private const string player1 = "player1";
         private const string player2 = "player2";
-		public char[,] P1GameBoard { get; set; }
+        public char[,] P1GameBoard { get; set; }
         public char[,] P2GameBoard { get; set; }
         private string currentPlayer;
         public BattleShips(GameMode mode)
-        
-		{
+
+        {
 
             currentPlayer = player1;
 
 
-			P1GameBoard = new char[10, 10]
-			{
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
-			};
+            P1GameBoard = new char[10, 10]
+            {
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
+            };
 
             P2GameBoard = new char[10, 10]
             {
@@ -44,7 +44,7 @@ namespace TicTacToeV2
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', '!', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
             };
         }
@@ -78,28 +78,30 @@ namespace TicTacToeV2
             return resultat;
         }
 
-        public bool IsHit(char [] validCoordinates)
+        public bool IsHit(char[] validCoordinates)
         {
             int j = Convert.ToInt32(validCoordinates[0]) - 1;
             int i = Convert.ToInt32(validCoordinates[1]) - 1;
 
             if (P2GameBoard[j, i] == 'B')
             {
+                // Skal meddele "ramt"
                 P2GameBoard[j, i] = 'X';
                 return true;
 
             }
             else if (P2GameBoard[j, i] == ' ')
             {
+                // Skal meddele "plask"
                 P2GameBoard[j, i] = 'O';
                 return true;
             }
 
             return false;
 
-			
-		}
-        public string GetCurrentPlayer()         
+
+        }
+        public string GetCurrentPlayer()
         {
 
             return currentPlayer;
