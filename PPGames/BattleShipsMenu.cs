@@ -77,7 +77,8 @@ namespace PPGames
 		{
 			ShowGameBoard();
 			Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
-			
+            Console.WriteLine("Place Ship [X,Y,(V Or H)]" + "  V is for vertical. H is for horizontal.");
+            
 			//TODO: Show actions for either placing ships or boats, depending on if all ships are placed.
 
 		}
