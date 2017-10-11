@@ -12,6 +12,11 @@ namespace PPGames
         private const string player1 = "1";
         private const string player2 = "2";
 		private string currentPlayer;
+		private const int GRID_SIZE = 10;
+		public int GridSize
+		{
+			get { return GRID_SIZE; }
+		}
 
 		// Properties
 		public string CurrentPlayer
@@ -27,7 +32,7 @@ namespace PPGames
 		{
             currentPlayer = player1;
 
-			P1GameBoard = new char[10, 10]
+			P1GameBoard = new char[GRID_SIZE, GRID_SIZE]
 			{
 				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
 				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -41,7 +46,7 @@ namespace PPGames
 				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
 			};
 
-            P2GameBoard = new char[10, 10]
+            P2GameBoard = new char[GRID_SIZE, GRID_SIZE]
             {
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -106,9 +111,54 @@ namespace PPGames
 
 			
 		}
-        public string GetCurrentPlayer()         
-        {
 
+		public bool PlaceShip(int x, int y, char axis, Ship ship)
+		{
+			int shipLength = ship.Size;
+			
+			if((x >= 0 && x <= GRID_SIZE - shipLength) && (y >= GRID_SIZE - shipLength -1 && y <= GRID_SIZE - 1))
+			{
+				for(int i = 0; i < shipLength; i++)
+				{
+					if(axis == 'H')
+					{
+						if(!(P1GameBoard[x + i, y] == ' '))
+						{
+							return false;
+						}
+					}
+					else if(axis == 'V')
+					{
+						if(!(P1GameBoard[x, y + i] == ' '))
+						{
+							return false;
+						}
+					}
+				}
+			}
+			else
+			{
+				return false;
+			}
+
+			// If we can place ship at coordinate, then change board to 'B'
+			for(int i = 0; i < shipLength; i++)
+			{
+				if(axis == 'H')
+				{
+					P1GameBoard[x + i, y] = 'B';
+				}
+				else if(axis == 'V')
+				{
+					P1GameBoard[x, y + i] = 'B';
+				}
+			}
+
+			return true; // return that we placed a ship
+		}
+
+		public string GetCurrentPlayer()         
+        {
             return currentPlayer;
         }
         private void ChangePlayer()

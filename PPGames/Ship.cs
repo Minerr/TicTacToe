@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PPGames
 {
-    class Ship
+    public class Ship
     {
         private string m_name;
         private int m_size;

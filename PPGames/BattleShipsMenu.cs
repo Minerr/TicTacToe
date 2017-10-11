@@ -11,11 +11,27 @@ namespace PPGames
 
 		private BattleShips game;
 		private MenuOptions currentMenu;
+		private Ship[] ships;
+		private Ship currentShip;
+
 
 		// Constructor
 		public BattleShipsMenu()
 		{
 			currentMenu = MenuOptions.ChooseGameMode;
+
+			ships = new Ship[9];
+			ships[0] = new Ship(5, "Aircraft Carrier");
+			ships[1] = new Ship(4, "BattleShip");
+			ships[2] = new Ship(4, "BattleShip");
+			ships[3] = new Ship(3, "Destroyer");
+			ships[4] = new Ship(3, "Destroyer");
+			ships[5] = new Ship(3, "Submarine");
+			ships[6] = new Ship(2, "Patrol Boat");
+			ships[7] = new Ship(2, "Patrol Boat");
+			ships[8] = new Ship(2, "Patrol Boat");
+
+			currentShip = ships[0];
 		}
 
 		/// <summary>
@@ -77,10 +93,7 @@ namespace PPGames
 		{
 			ShowGameBoard();
 			Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
-            Console.WriteLine("Place Ship [X,Y,(V Or H)]" + "  V is for vertical. H is for horizontal.");
-            
-			//TODO: Show actions for either placing ships or boats, depending on if all ships are placed.
-
+            Console.WriteLine("Place " + currentShip.Name +" : " + " Ship Size: " + currentShip.Size +  " [X,Y,(V Or H)]" + "  (V) Vertical. (H) Horizontal.");
 		}
 
 		//------------- Handle Input menu's ---------------
@@ -104,6 +117,7 @@ namespace PPGames
 			return false;
 		}
 
+
 		private bool HandleGameAction(string input)
 		{
 			// Hvis vores input er 0, så skal vi returnere til Hoved menuen.
@@ -111,9 +125,21 @@ namespace PPGames
 			{
 				return true;
 			}
-			
-			//TODO: Code for place ship and place bomb goes here
 
+			string[] shipCoordinates = input.Split(',');
+
+			if(shipCoordinates.Length == 3)
+			{
+				if(IsCoordinateValid(shipCoordinates[0], shipCoordinates[1]))
+				{
+					int x = Convert.ToInt32(shipCoordinates[0]) - 1; // minus 1 fordi at gameboardet er fra 0 til 9.
+					int y = Convert.ToInt32(shipCoordinates[1]) - 1;
+					char axis = Convert.ToChar(shipCoordinates[2]);
+					game.PlaceShip(x, y, axis, currentShip);
+				}
+			}
+
+			//TODO: If we have placed all ships, then place bomb instead.
 
 			return false;
 		}
@@ -146,23 +172,27 @@ namespace PPGames
 			Console.WriteLine(game.GetGameBoardView());
 		}
 
-		private bool IsCoordinateValid(string input)
+		private string[] validCoordinates = {"1"};
+
+		private bool IsCoordinateValid(string x, string y)
 		{
-			string[] inputs = input.Split(',');
+			bool isXValid = false;
+			bool isYValid = false;
 
-			if(inputs.Length == 2)
+			for(int i = 1; i < game.GridSize; i++)
 			{
-				string inputX = inputs[0];
-				string inputY = inputs[1];
-
-				if(inputX.Length == 1 && (inputX == "1" || inputX == "2" || inputX == "3") &&
-					(inputY.Length == 1 && (inputY == "1" || inputY == "2" || inputY == "3")))
+				if(isXValid != true && x == i.ToString()) // if x is not valid yet, then check if it is. If x is already valid, then don't check.
 				{
-					return true;
+					isXValid = true;
+				}
+
+				if(isYValid != true && y == i.ToString())
+				{
+					isYValid = true;
 				}
 			}
 
-			return false;
+			return isXValid && isYValid; // Both x & y should be true
 		}
 	}
 }
