@@ -18,6 +18,9 @@ namespace PPGames
 			currentMenu = MenuOptions.ChooseGameMode;
 		}
 
+		/// <summary>
+		/// Displays the current menu, using the MenuOption enum.
+		/// </summary>
 		public void DisplayCurrentMenu()
 		{
 			switch(currentMenu)
@@ -76,6 +79,7 @@ namespace PPGames
 			Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
 			
 			//TODO: Show actions for either placing ships or boats, depending on if all ships are placed.
+
 		}
 
 		//------------- Handle Input menu's ---------------
@@ -108,6 +112,7 @@ namespace PPGames
 			}
 			
 			//TODO: Code for place ship and place bomb goes here
+
 
 			return false;
 		}

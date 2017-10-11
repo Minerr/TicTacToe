@@ -18,6 +18,9 @@ namespace PPGames
 			currentMenu = MenuOptions.ChooseGameMode;
 		}
 
+		/// <summary>
+		/// Displays the current menu, using the MenuOption enum.
+		/// </summary>
 		public void DisplayCurrentMenu()
 		{
 			switch(currentMenu)
