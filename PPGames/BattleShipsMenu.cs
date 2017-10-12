@@ -176,7 +176,7 @@ namespace PPGames
 							
 							if(game.CheckWinCondition())
 							{
-								// TODO: print out win
+								ShowWinner();
 							}
 
 							SwitchPlayer();

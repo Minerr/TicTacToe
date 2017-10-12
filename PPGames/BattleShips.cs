@@ -66,9 +66,8 @@ namespace PPGames
             string resultat = "";
             Console.WriteLine("\n           Player Board                                    Opponents Board");
 
-			string spaceAtStart = "   ";
 			string spaceBetweenBoard = "     ";
-			string divider = "\n" + spaceAtStart + "*****************************************" + spaceBetweenBoard + "*****************************************\n";
+			string divider = "\n   *****************************************" + spaceBetweenBoard + "*****************************************\n";
 
 			string numbersAtBottom = " ";
 			for(int i = 1; i <= GRID_SIZE; i++)
@@ -250,11 +249,6 @@ namespace PPGames
 
 			return place;
 		}
-
-		public string GetCurrentPlayer()         
-        {
-            return currentPlayer;
-        }
 
         public void ChangePlayer()
         {

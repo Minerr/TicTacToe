@@ -24,11 +24,11 @@ namespace PPGames
                 return m_size;
             }
         }
+
         public Ship(int size, string name)
         {
             m_size = size;
             m_name = name;
         }
-        
     }
 }

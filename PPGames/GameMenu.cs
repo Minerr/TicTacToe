@@ -8,6 +8,7 @@ namespace PPGames
 {
 	public interface GameMenu
 	{
+		
 		void DisplayCurrentMenu();
 
 		bool HandleInput(string input);
