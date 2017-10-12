@@ -56,7 +56,7 @@ namespace PPGames
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', '!', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
             };
         }
@@ -64,28 +64,46 @@ namespace PPGames
         public string GetGameBoardView()
         {
             string resultat = "";
-            Console.WriteLine("           Player Board                                    Opponents Board");
+            Console.WriteLine("\n           Player Board                                    Opponents Board");
 
-			for (int i = GRID_SIZE - 1; i >= 0; i--) // for hver række i vores grid, gør følgende: 
+			string spaceAtStart = "   ";
+			string spaceBetweenBoard = "     ";
+			string divider = "\n" + spaceAtStart + "*****************************************" + spaceBetweenBoard + "*****************************************\n";
+
+			string numbersAtBottom = " ";
+			for(int i = 1; i <= GRID_SIZE; i++)
+			{
+				numbersAtBottom = numbersAtBottom + "   " + i;
+			}
+
+			for (int y = GRID_SIZE - 1; y >= 0; y--) // for hver række i vores grid, gør følgende: 
             {
-                resultat = resultat + "\n *****************************************     *****************************************\n";
-                resultat = resultat + " | ";
-                for (int j = 0; j < GRID_SIZE; j++) // For hver plads i rækken (kolonnen), på gameboard P1, gør følgende:
+				string numberAtLeft = "";
+				int number = (y + 1);
+				if(number < 10) // Hvis vores lodrette række er mindre end 10, så smid et space foran tallet i siden.
+				{
+					numberAtLeft = numberAtLeft + " ";
+				}
+				numberAtLeft = numberAtLeft + number + " | ";
+
+				resultat = resultat + divider + numberAtLeft;
+
+                for (int x = 0; x < GRID_SIZE; x++) // For hver plads i rækken (kolonnen), på gameboard P1, gør følgende:
                 {
-                    resultat = resultat + GetPlaceInBoard(j, i) + " | ";
+                    resultat = resultat + GetPlaceInBoard(x, y) + " | ";
                 }
 
-                resultat = resultat + "    | "; // Efter P1 gameboarded, start gameboard P2 med en opdeler: " | "
-				
-                for (int j = 0; j < GRID_SIZE; j++) // For hver plads i rækken (kolonnen), på gameboard P2, gør følgende:
+                resultat = resultat + " " + numberAtLeft; // Efter P1 gameboarded, start gameboard P2 med en opdeler: " | "
+
+				for (int x = 0; x < GRID_SIZE; x++) // For hver plads i rækken (kolonnen), på gameboard P2, gør følgende:
 				{
-					resultat = resultat + GetPlaceInOpponentsBoard(j, i) + " | ";
+					resultat = resultat + GetPlaceInOpponentsBoard(x, y) + " | ";
                 }
             }
 
-            resultat = resultat + "\n *****************************************     *****************************************\n";
+            resultat = resultat + divider + numbersAtBottom + spaceBetweenBoard + numbersAtBottom + "\n";
 
-            return resultat;
+			return resultat;
         }
 
 		// TODO: Refactor spaghetti code
@@ -134,7 +152,7 @@ namespace PPGames
 		{
 			int shipLength = ship.Size;
 			
-			if(axis == 'H')
+			if(axis == 'h')
 			{
 				if((x >= 0 && x <= GRID_SIZE - shipLength) && (y >= 0 && y <= GRID_SIZE - 1))
 				{
@@ -151,7 +169,7 @@ namespace PPGames
 					return false;
 				}
 			}
-			else if(axis == 'V')
+			else if(axis == 'v')
 			{
 				if((x >= 0 && x <= GRID_SIZE - 1) && (y >= 0 && y <= GRID_SIZE - shipLength))
 				{
@@ -176,11 +194,11 @@ namespace PPGames
 			// If we can place ship at coordinate, then change board to 'B'
 			for(int i = 0; i < shipLength; i++)
 			{
-				if(axis == 'H')
+				if(axis == 'h')
 				{
 					PlaceShipInBoard(x + i, y);
 				}
-				else if(axis == 'V')
+				else if(axis == 'v')
 				{
 					PlaceShipInBoard(x, y + i);
 				}
@@ -250,7 +268,7 @@ namespace PPGames
             }
         }
 
-		public string NextPlayer()
+		public string GetNextPlayer()
 		{
 			if(currentPlayer == player1)
 			{
