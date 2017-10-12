@@ -24,9 +24,20 @@ namespace PPGames
 			currentMenu = MenuOptions.ChooseGameMode;
 			switchedPlayer = false;
 
+			//ships = new Ship[9];
+			//ships[0] = new Ship(5, "Aircraft Carrier");
+			//ships[1] = new Ship(4, "BattleShip");
+			//ships[2] = new Ship(4, "BattleShip");
+			//ships[3] = new Ship(3, "Destroyer");
+			//ships[4] = new Ship(3, "Destroyer");
+			//ships[5] = new Ship(3, "Submarine");
+			//ships[6] = new Ship(2, "Patrol Boat");
+			//ships[7] = new Ship(2, "Patrol Boat");
+			//ships[8] = new Ship(2, "Patrol Boat");
+
 			ships = new Ship[2];
-			ships[0] = new Ship(5, "Aircraft Carrier");
-			ships[1] = new Ship(4, "BattleShip");
+			ships[0] = new Ship(3, "Submarine");
+			ships[1] = new Ship(2, "Patrol Boat");
 			//ships[2] = new Ship(4, "BattleShip");
 			//ships[3] = new Ship(3, "Destroyer");
 			//ships[4] = new Ship(3, "Destroyer");
