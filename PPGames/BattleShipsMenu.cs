@@ -13,25 +13,32 @@ namespace PPGames
 		private MenuOptions currentMenu;
 		private Ship[] ships;
 		private Ship currentShip;
+		private int currentShipIndex;
+		private bool allShipsPlaced;
+		private bool switchedPlayer;
+		private bool shouldSwitchPlayer;
 
 
 		// Constructor
 		public BattleShipsMenu()
 		{
 			currentMenu = MenuOptions.ChooseGameMode;
+			switchedPlayer = false;
+			shouldSwitchPlayer = false;
 
-			ships = new Ship[9];
+			ships = new Ship[2];
 			ships[0] = new Ship(5, "Aircraft Carrier");
 			ships[1] = new Ship(4, "BattleShip");
-			ships[2] = new Ship(4, "BattleShip");
-			ships[3] = new Ship(3, "Destroyer");
-			ships[4] = new Ship(3, "Destroyer");
-			ships[5] = new Ship(3, "Submarine");
-			ships[6] = new Ship(2, "Patrol Boat");
-			ships[7] = new Ship(2, "Patrol Boat");
-			ships[8] = new Ship(2, "Patrol Boat");
+			//ships[2] = new Ship(4, "BattleShip");
+			//ships[3] = new Ship(3, "Destroyer");
+			//ships[4] = new Ship(3, "Destroyer");
+			//ships[5] = new Ship(3, "Submarine");
+			//ships[6] = new Ship(2, "Patrol Boat");
+			//ships[7] = new Ship(2, "Patrol Boat");
+			//ships[8] = new Ship(2, "Patrol Boat");
 
-			currentShip = ships[0];
+			currentShipIndex = 0;
+			UpdateCurrentShip();
 		}
 
 		/// <summary>
@@ -91,9 +98,29 @@ namespace PPGames
 
 		private void ShowGameActions()
 		{
-			ShowGameBoard();
-			Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
-            Console.WriteLine("Place " + currentShip.Name +" : " + " Ship Size: " + currentShip.Size +  " [X,Y,(V Or H)]" + "  (V) Vertical. (H) Horizontal.");
+			if(shouldSwitchPlayer != true)
+			{
+				ShowGameBoard();
+				Console.WriteLine("Player " + game.CurrentPlayer + ", it is your turn.");
+				if(allShipsPlaced != true)
+				{
+					Console.WriteLine("Place " + currentShip.Name + " : " + " Ship Size: " + currentShip.Size +
+						" [X,Y,(V Or H)]" + "  (V) Vertical. (H) Horizontal.");
+				}
+				else
+				{
+					Console.WriteLine("Place bomb at coordinate: [X,Y,(V Or H)]  (V) Vertical. (H) Horizontal.");
+				}
+			}
+			else
+			{
+				Console.WriteLine(value: "Player " + game.NextPlayer() + ", it is your turn.");
+				PressKeyToContinue();
+				game.ChangePlayer();
+				switchedPlayer = true;
+				shouldSwitchPlayer = false;
+			}
+
 		}
 
 		//------------- Handle Input menu's ---------------
@@ -128,24 +155,69 @@ namespace PPGames
 
 			string[] shipCoordinates = input.Split(',');
 
-			if(shipCoordinates.Length == 3)
+			//TODO: Refactor nested if-statements.
+			if(allShipsPlaced != true)
 			{
-				if(IsCoordinateValid(shipCoordinates[0], shipCoordinates[1]))
+				if(shipCoordinates.Length == 3)
 				{
-					int x = Convert.ToInt32(shipCoordinates[0]) - 1; // minus 1 fordi at gameboardet er fra 0 til 9.
-					int y = Convert.ToInt32(shipCoordinates[1]) - 1;
-					char axis = Convert.ToChar(shipCoordinates[2]);
-					game.PlaceShip(x, y, axis, currentShip);
+					if(IsCoordinateValid(shipCoordinates[0], shipCoordinates[1]))
+					{
+						int x = Convert.ToInt32(shipCoordinates[0]) - 1; // minus 1 fordi at gameboardet er fra 0 til 9.
+						int y = Convert.ToInt32(shipCoordinates[1]) - 1;
+						char axis = Convert.ToChar(shipCoordinates[2]);
+
+						if(game.PlaceShip(x, y, axis, currentShip)) // If we could place a ship, then update current ship, to the next ship in list.
+						{
+							UpdateCurrentShip();
+						}
+					}
 				}
 			}
+			else // If we placed all ships, then we can place bombs.
+			{
+				//TODO: Place bombs
+				if(shipCoordinates.Length == 2)
+				{
+					if(IsCoordinateValid(shipCoordinates[0], shipCoordinates[1]))
+					{
+						int x = Convert.ToInt32(shipCoordinates[0]) - 1; // minus 1 fordi at gameboardet er fra 0 til 9.
+						int y = Convert.ToInt32(shipCoordinates[1]) - 1;
 
-			//TODO: If we have placed all ships, then place bomb instead.
+						if(game.PlaceBomb(x, y)) // If we could place a ship, then update current ship, to the next ship in list.
+						{
+							
+							if(game.CheckWinCondition())
+							{
+								// TODO: print out win
+							}
+							
+							// switch player
+						}
+					}
+				}
+			}
 
 			return false;
 		}
 
 
 		// ---------- Uncategorized methods --------------
+
+		// TODO: Update Current ship and switch player if he placed all ships.
+		private void UpdateCurrentShip()
+		{
+			if(currentShipIndex < ships.Length) // Place all ships until no more.
+			{
+				currentShip = ships[currentShipIndex];
+				currentShipIndex++;
+			}
+			else
+			{
+				// Switch player
+			}
+
+			// TODO: If both players has placed all ships, then set allShipsPlaced to true.
+		}
 
 		private void CreateGame(GameMode mode)
 		{
@@ -171,8 +243,6 @@ namespace PPGames
 		{
 			Console.WriteLine(game.GetGameBoardView());
 		}
-
-		private string[] validCoordinates = {"1"};
 
 		private bool IsCoordinateValid(string x, string y)
 		{
